@@ -7,6 +7,7 @@ namespace Lanches.Models
     public class Lanche
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int LancheId { get; set; }
 
         [Required(ErrorMessage ="O nome do lanche deve ser informado")]

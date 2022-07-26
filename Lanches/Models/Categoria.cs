@@ -7,6 +7,7 @@ namespace Lanches.Models
     public class Categoria
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CategoriaId { get; set; }
 
         [Required(ErrorMessage = "Informe o nome da categoria")]
