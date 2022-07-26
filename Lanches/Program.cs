@@ -1,5 +1,13 @@
+using Lanches.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
+var connString = builder.Configuration.GetConnectionString("DefaultConection");
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlServer(connString);
+});
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
