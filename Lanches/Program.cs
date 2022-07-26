@@ -1,4 +1,6 @@
 using Lanches.Context;
+using Lanches.Repository;
+using Lanches.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(connString);
 });
+
+builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+builder.Services.AddTransient<ILancheRepository, LancheRepository>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
