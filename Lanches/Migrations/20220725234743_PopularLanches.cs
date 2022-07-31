@@ -68,8 +68,12 @@ namespace Lanches.Migrations
         {
             foreach (var lance in Lanches)
             {
-                migrationBuilder.Sql("INSERT INTO Lanches(Nome, DescricaoCurta, DescricaoDetalhada, Preco, ImagemUrl, ImagemThumbnailUrl, IsLanchePreferido, EmEstoque, CategoriaId) " +
-                    $"VALUES('{lance.Nome}','{lance.DescricaoCurta}', '{lance.DescricaoDetalhada}', {decimal.Parse(lance.Preco.ToString(), CultureInfo.GetCultureInfo("en-US"))}, '{lance.ImagemUrl}', '{lance.ImagemThumbnailUrl}', {Convert.ToByte(lance.IsLanchePreferido)},{Convert.ToByte(lance.EmEstoque)}, {lance.CategoriaId})"
+                migrationBuilder.Sql("INSERT INTO Lanches(Nome, DescricaoCurta, DescricaoDetalhada, Preco, ImagemUrl, ImagemThumbnailUrl, " +
+                        "IsLanchePreferido, EmEstoque, CategoriaId) " +
+                        $"VALUES('{lance.Nome}','{lance.DescricaoCurta}', '{lance.DescricaoDetalhada}', " +
+                        $"{lance.Preco.ToString(CultureInfo.GetCultureInfo("en-GB"))}, '{lance.ImagemUrl}', " +
+                        $"'{lance.ImagemThumbnailUrl}', {Convert.ToByte(lance.IsLanchePreferido)},{Convert.ToByte(lance.EmEstoque)}, " +
+                        $"{lance.CategoriaId})"
                     );
             }
         }
