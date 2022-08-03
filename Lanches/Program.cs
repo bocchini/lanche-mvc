@@ -1,4 +1,5 @@
 using Lanches.Context;
+using Lanches.Models;
 using Lanches.Repository;
 using Lanches.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddTransient<ILancheRepository, LancheRepository>();
+builder.Services.AddScoped(s => CarrinhoCompra.GetCarrinho(s));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

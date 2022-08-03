@@ -50,7 +50,7 @@ namespace Lanches.Models
             _context.SaveChanges();
         }
 
-        public List<CarrinhoCompraItem> GetCarrinhoCompraItem()
+        public List<CarrinhoCompraItem> GetCarrinhoCompraItens()
         {
             return CarrinhoCompraItens ?? (CarrinhoCompraItens = _context.CarrinhoCompraItens
                 .Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
